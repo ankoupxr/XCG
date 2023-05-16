@@ -4,7 +4,7 @@
             "name": "Win32",
             "includePath": [
                 "g:\\pxr\\opencode\\XMesh/**",
-                "${workspaceFolder}"
+                "${workspaceFolder}\\External\\eigen-3.4.0"
             ],
             "defines": [
                 "_DEBUG",
