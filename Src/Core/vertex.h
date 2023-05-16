@@ -1,11 +1,13 @@
 #pragma once
 
 #include <vector>
-#include "element.h"
+#include "point.h"
 #include "vector"
 
 
-class Vertex : public Element
+namespace XCG{
+  namespace Core{
+class Vertex
 {
 private:
     /* data */
@@ -30,4 +32,11 @@ public:
 
     public:
         ~Vertex(void);
-};
+    
+    protected:
+        int m_id;
+        Point m_point;
+        HalfEdge m_halfedge;
+    };
+  }
+}
