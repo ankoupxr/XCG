@@ -1,42 +1,29 @@
 #pragma once
 
 #include <vector>
-#include "point.h"
-#include "vector"
-
+#include "../System/max_min_inf.h"
 
 namespace XCG{
   namespace Core{
-class Vertex
-{
-private:
-    /* data */
-public:
-    typedef struct 
+    class Vertex
     {
-        unsigned int index;
-        float x;
-        float y;
-        float z;
-        float nx;
-        float ny;
-        float nz;
-    }VertexInfo;
-    
+        private:
+            double x,y,z;
+        public:
+            Vertex(double _x, double _y, double _z);
 
+            ~Vertex() {};
 
-    Vertex(float p1 = 0.0f, float p2 = 0.0f, float p3 = 0.0f, float n1 = 0.0f, float n2 = 0.0f, float n3 = 0.0f);
-    Vertex(const Vector &pos, const Vector &nor = Vector());
+            void set_handle(uint _i);
+            
+            uint handle();
 
-    VertexInfo getVertexInfo();
+            void set_position(double _x,double _y,double _z);
 
-    public:
-        ~Vertex(void);
-    
-    protected:
-        int m_id;
-        Point m_point;
-        HalfEdge m_halfedge;
-    };
+            //Point get_position();
+
+        protected:
+                uint vertex_handle;
+        };
   }
 }

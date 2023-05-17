@@ -1,14 +1,30 @@
 #pragma once
 
+#include <assert.h>
+#include <stdlib.h>
+#include <math.h>
+#include <string>
 
-class Edge
+namespace XCG
 {
-    public:
-    typedef struct 
+    namespace Core
     {
-        unsigned int index;
-        unsigned int startpoint;
-        unsigned int endpoint
-    } EdgeInfo;
-    
+        class HalfEdge;
+        class Vertex;
+
+        class Edge
+        {
+            public:
+                Edge();
+                ~Edge();
+
+	            int & id() { return m_id; };
+
+                HalfEdge * & halfedge( int id ) { assert( 0<=id && id < 2 ); return m_halfedge[id];};
+            protected:
+                HalfEdge * m_halfedge[2];
+                int m_id;
+
+        };
+    }
 }
