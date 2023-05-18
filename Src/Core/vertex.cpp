@@ -19,5 +19,13 @@ namespace XCG
         {
             return vertex_handle;
         }
+
+        void Vertex::add_incoming_half_edge(unsigned int _i) {
+            incoming_half_edges.insert(_i);
+        }
+
+        void Vertex::add_outgoing_half_edge(unsigned int _i) {
+            outgoing_half_edges.insert(_i);
+        }
     }
 }

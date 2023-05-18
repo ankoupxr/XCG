@@ -9,8 +9,5 @@ public:
     unsigned int m_index;
 
 public:
-    Element(void);
-
-public:
-    virtual ~Element(void);
+    Element();
 };
