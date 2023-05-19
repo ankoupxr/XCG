@@ -2,6 +2,8 @@
 
 #include <cstddef>
 
+#include <Eigen/Core>
+
 #include "../../Core/vertex.h"
 #include "../../Core/edge.h"
 #include "../../Core/halfedge.h"
@@ -59,6 +61,32 @@ namespace XCG{
                 return all_vertices;
             }
 
+            Eigen::MatrixXd& get_verticesByMatrix()
+            {
+                Eigen::MatrixXd F;
+                uint row = 0;
+                for(uint i = 0;i < all_faces.size(); ++i)
+                {
+                    auto face_vertices = all_faces[i]->get_vertices();
+                    F(row,1) = std::get<0>(face_vertices)->handle();
+                    F(row,2) = std::get<1>(face_vertices)->handle();
+                    F(row,3) = std::get<2>(face_vertices)->handle();
+                }
+                return F;
+            }
+
+            Eigen::MatrixXi& get_facesByMatrix()
+            {
+                Eigen::MatrixXi F;
+                uint row = 0;
+                for(uint i = 0;i < all_vertices.size(); ++i)
+                {
+                    F(row,1) = all_vertices[i]->x;
+                    F(row,2) = all_vertices[i]->y;
+                    F(row,3) = all_vertices[i]->z;
+                }
+                return F;
+            }
 
             HalfEdge *get_half_edge(uint _i);
 

@@ -9,9 +9,8 @@ namespace XCG{
   namespace Core{
     class Vertex
     {
-        private:
-            double x,y,z;
         public:
+            double x,y,z;
             Vertex(double _x, double _y, double _z);
 
             ~Vertex() {};
